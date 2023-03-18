@@ -73,6 +73,7 @@ class _TodoListState extends State<TodoList> {
         color: Colors.black.withOpacity(0.1),
         child: Column(
           children: [
+            // Listeleme alanı
             Expanded(
               child: ListView.builder(
                 itemCount: _todoList.length,
@@ -85,6 +86,7 @@ class _TodoListState extends State<TodoList> {
                         value: _todoList[index].isCompleted,
                         onChanged: (_) => _toggleComplete(index),
                       ),
+                      // aşağıdaki gibi short if kullanmak yerine controlTextField widgetini kullanabilirsiniz
                       title: _todoList[index].isCompleted
                           ? Text(
                               _todoList[index].title,
@@ -113,6 +115,7 @@ class _TodoListState extends State<TodoList> {
                 },
               ),
             ),
+            // yeni todo ekleme alanı
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
@@ -122,7 +125,6 @@ class _TodoListState extends State<TodoList> {
                   filled: true,
                   fillColor: Colors.white,
                   enabledBorder: const OutlineInputBorder(
-                      //Outline border type for TextFeild
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         color: Colors.white,
